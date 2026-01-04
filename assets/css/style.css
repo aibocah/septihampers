@@ -1,0 +1,8 @@
+body{margin:0;font-family:Arial;background:#f9f7f2}
+header{background:#1b7f5c;color:#fff;padding:20px;text-align:center}
+section{padding:16px}
+.card,.product{background:#fff;padding:16px;border-radius:12px;margin-bottom:12px}
+.cta,button{display:block;background:#1b7f5c;color:#fff;padding:12px;text-align:center;border-radius:10px;text-decoration:none;margin-top:10px;border:none}
+input,textarea{width:100%;margin-top:8px;padding:8px}
+.price{font-weight:bold;color:#1b7f5c}
+.floating-wa{position:fixed;bottom:16px;right:16px;background:#25d366;color:#fff;padding:14px;border-radius:30px;text-decoration:none}
