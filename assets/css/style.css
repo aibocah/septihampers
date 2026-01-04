@@ -305,39 +305,26 @@ body {
 /* =====================
    PRICE BOX (DETAIL PRODUK)
 ===================== */
-.price-box {
-  margin-top: 24px;
-  background: #ffffff;
-  border-radius: 28px;
-  padding: 18px;
-  box-shadow: 0 8px 16px rgba(0,0,0,.15);
-  text-align: center;
+.price-box{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:8px;
+  background:#6fd68c;
+  padding:18px;
+  border-radius:26px;
+  font-weight:bold;
+  text-decoration:none;
+  color:#000;
+  box-shadow:0 8px 16px rgba(0,0,0,.2);
 }
 
-.price-box a {
-  text-decoration: none;
-  color: #000;
-  display: block;
+.price-box .rp{
+  font-size:24px;
 }
 
-.price-box .rp {
-  font-size: 32px;
-  font-weight: bold;
-  line-height: 1;
-}
-
-.price-box .price {
-  font-size: 40px;
-  font-weight: bold;
-  margin: 6px 0 10px;
-}
-
-.price-box .cta {
-  background: #6fd68c;
-  padding: 12px;
-  border-radius: 18px;
-  font-weight: bold;
-  font-size: 18px;
+.price-box .nominal{
+  font-size:36px;
 }
 
 /* INFO MESSAGE */
