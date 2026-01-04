@@ -102,9 +102,15 @@ button{
 const params = new URLSearchParams(window.location.search);
 const produk = params.get("produk") || "-";
 const harga = params.get("harga") || "-";
+const detail = params.get("detail") || "";
 
 document.getElementById("produk").innerText = produk;
 document.getElementById("harga").innerText = harga;
+
+if(detail){
+  document.getElementById("detail").innerText = detail;
+  document.getElementById("detailBox").style.display = "block";
+}
 
 function kirimWA(){
   const nama = document.getElementById("nama").value.trim();
@@ -123,7 +129,8 @@ function kirimWA(){
 `Halo, saya ingin memesan:
 
 Produk: ${produk}
-Harga: Rp ${harga}
+Harga: ${harga}
+${detail ? "Detail: " + detail : ""}
 
 Nama: ${nama}
 No WA: ${wa}
@@ -132,8 +139,10 @@ Catatan: ${catatan}
 
 Terima kasih`;
 
-  const url = `https://wa.me/${noAdmin}?text=${encodeURIComponent(pesan)}`;
-  window.open(url, "_blank");
+  window.open(
+    `https://wa.me/${noAdmin}?text=${encodeURIComponent(pesan)}`,
+    "_blank"
+  );
 }
 </script>
 
