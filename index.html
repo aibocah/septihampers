@@ -7,7 +7,26 @@
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
+<section class="gallery">
 
+  <div class="img-card" data-link="produk.html">
+    <img src="assets/img/hampers-1.jpg" alt="Hampers Lebaran 1">
+  </div>
+
+  <div class="img-card" data-link="produk.html">
+    <img src="assets/img/hampers-2.jpg" alt="Hampers Lebaran 2">
+  </div>
+
+  <div class="img-card" data-link="produk.html">
+    <img src="assets/img/hampers-3.jpg" alt="Hampers Lebaran 3">
+  </div>
+
+  <div class="img-card" data-link="produk.html">
+    <img src="assets/img/hampers-4.jpg" alt="Hampers Lebaran 4">
+  </div>
+
+</section>
+  
 <header>
 <h1>Hampers Lebaran Murah & Berkah</h1>
 <p>Hadiah terbaik untuk keluarga tanpa ribet</p>
@@ -28,6 +47,24 @@
 </section>
 
 <a class="floating-wa" href="https://wa.me/62895339847320">💬 WhatsApp</a>
+<script>
+  const cards = document.querySelectorAll('.img-card');
 
+  cards.forEach(card => {
+    let zoomed = false;
+
+    card.addEventListener('click', () => {
+      if (!zoomed) {
+        // klik pertama → zoom
+        card.classList.add('zoom');
+        zoomed = true;
+      } else {
+        // klik kedua → ke produk
+        window.location.href = card.dataset.link;
+      }
+    });
+  });
+</script>
+  
 </body>
 </html>
