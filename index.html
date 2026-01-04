@@ -7,8 +7,8 @@
 <link rel="stylesheet" href="assets/css/style.css">
 
 <style>
-/* ===== HOME EXTRA MINIMAL ===== */
-.home-minimal{
+/* ===== HOME FINAL (EXTRA MINIMAL) ===== */
+.home-final{
 min-height:100vh;
 display:flex;
 flex-direction:column;
@@ -16,48 +16,48 @@ background:#f9f7f2;
 }
 
 /* HEADER DOMINAN */
-.hero-minimal{
+.hero-final{
 text-align:center;
-padding:22px 16px 12px;
+padding:24px 16px 14px;
 }
-.hero-minimal h1{
-font-size:28px;
+.hero-final h1{
+font-size:30px;
 margin:0;
-letter-spacing:.5px;
+letter-spacing:.6px;
 }
-.hero-minimal h2{
+.hero-final h2{
 font-size:13px;
 font-weight:normal;
 margin:6px 0 4px;
 color:#444;
 }
-.hero-minimal p{
+.hero-final p{
 font-size:12px;
 color:#666;
 margin:0;
 }
 
-/* GRID SANGAT MINIMAL (BODY ONLY) */
-.grid-minimal{
+/* GRID BODY (KECIL & LEGA) */
+.grid-final{
 flex:1;
 display:grid;
 grid-template-columns:1fr 1fr;
-gap:14px;
-padding:18px 22px;
+gap:16px;
+padding:18px 24px;
 }
-.grid-minimal .item{
-height:110px;
-border-radius:18px;
+.grid-final .item{
+height:100px;
+border-radius:20px;
 overflow:hidden;
 background:#ddd;
 }
-.grid-minimal img{
+.grid-final img{
 width:100%;
 height:100%;
 object-fit:cover;
 }
 
-/* OVERLAY ZOOM */
+/* ZOOM OVERLAY */
 #zoomOverlay{
 position:fixed;
 inset:0;
@@ -92,31 +92,31 @@ text-decoration:none;
 box-shadow:0 4px 10px rgba(0,0,0,.2);
 }
 
-/* FOOTER SUPER RINGKAS */
-.footer-minimal{
+/* FOOTER RINGKAS */
+.footer-final{
 text-align:center;
 font-size:11px;
 padding:6px;
 opacity:.7;
 }
-.footer-minimal a{
+.footer-final a{
 margin:0 6px;
 text-decoration:none;
 }
 </style>
 </head>
 
-<body class="home-minimal">
+<body class="home-final">
 
 <!-- HEADER -->
-<header class="hero-minimal">
+<header class="hero-final">
   <h1>Hampers Lebaran</h1>
   <h2>Temukan dan pilih hampers untuk keluarga dan teman anda</h2>
   <p>Pilihan ekonomis tanpa bikin krisis di moment Ramadhan tahun ini</p>
 </header>
 
 <!-- GRID BODY -->
-<section class="grid-minimal">
+<section class="grid-final">
   <div class="item" data-link="produk/hampers-hemat.html">
     <img src="assets/img/hampers-1.jpg" alt="Hampers Hemat">
   </div>
@@ -139,20 +139,20 @@ text-decoration:none;
 </div>
 
 <!-- FOOTER -->
-<footer class="footer-minimal">
+<footer class="footer-final">
   Pilihlah pilihan yang tepat untuk kerabat anda <br>
   <a href="LINK_MAPS">Maps</a> •
   <a href="https://wa.me/62895339847320">WhatsApp</a> •
   <a href="LINK_TIKTOK">TikTok</a>
 </footer>
 
-<!-- ZOOM OVERLAY -->
+<!-- ZOOM -->
 <div id="zoomOverlay">
   <img id="zoomImg">
 </div>
 
 <script>
-const items = document.querySelectorAll('.grid-minimal .item');
+const items = document.querySelectorAll('.grid-final .item');
 const overlay = document.getElementById('zoomOverlay');
 const zoomImg = document.getElementById('zoomImg');
 let targetLink = '';
@@ -166,9 +166,7 @@ items.forEach(item => {
 });
 
 overlay.addEventListener('click', () => {
-  if (targetLink) {
-    window.location.href = targetLink;
-  }
+  if (targetLink) window.location.href = targetLink;
 });
 </script>
 
