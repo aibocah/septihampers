@@ -9,32 +9,35 @@
 
 <body class="home">
 
-<!-- HEADER -->
+<!-- HEADER / HERO -->
 <header class="hero">
-  <img class="hero-img" src="assets/img/hampers-1.jpg" alt="Hampers">
+  <img class="hero-img" src="assets/img/hampers-1.jpg" alt="Hampers Lebaran">
   <h1>Hampers Lebaran</h1>
   <h2>Temukan dan pilih hampers untuk keluarga dan teman anda</h2>
   <p>Pilihan ekonomis ga bikin anda krisis di moment Ramadhan tahun ini</p>
 
   <div class="hero-actions">
-    <a href="produk/hampers-hemat.html" class="icon-btn">📦 Produk</a>
-    <a href="produk/custom.html" class="icon-btn">🧺 Custom</a>
+    <a href="produk/hampers-hemat.html" class="icon-btn">📦 Daftar Produk</a>
+    <a href="produk/custom.html" class="icon-btn">🧺 Produk Custom</a>
   </div>
 </header>
 
-<!-- GRID PRODUK -->
+<!-- GRID PRODUK (1 layar) -->
 <section class="grid">
   <div class="card-img" data-link="produk/hampers-hemat.html">
-    <img src="assets/img/hampers-1.jpg">
+    <img src="assets/img/hampers-1.jpg" alt="Hampers Hemat">
   </div>
+
   <div class="card-img" data-link="produk/hampers-lengkap.html">
-    <img src="assets/img/hampers-2.jpg">
+    <img src="assets/img/hampers-2.jpg" alt="Hampers Lengkap">
   </div>
+
   <div class="card-img" data-link="produk/hampers-spesial.html">
-    <img src="assets/img/hampers-3.jpg">
+    <img src="assets/img/hampers-3.jpg" alt="Hampers Spesial">
   </div>
+
   <div class="card-img" data-link="produk/custom.html">
-    <img src="assets/img/hampers-4.jpg">
+    <img src="assets/img/hampers-4.jpg" alt="Custom Hampers">
   </div>
 </section>
 
@@ -42,24 +45,28 @@
 <footer class="footer">
   <p>Pilihlah pilihan yang tepat untuk kerabat anda</p>
   <div class="footer-icons">
-    <a href="LINK_MAPS_KAMU" target="_blank">📍</a>
-    <a href="https://wa.me/62895339847320" target="_blank">💬</a>
-    <a href="LINK_TIKTOK_KAMU" target="_blank">🎵</a>
+    <!-- GANTI LINK DI BAWAH SESUAI PUNYAMU -->
+    <a href="LINK_MAPS_KAMU" target="_blank" aria-label="Maps">📍</a>
+    <a href="https://wa.me/62895339847320" target="_blank" aria-label="WhatsApp">💬</a>
+    <a href="LINK_TIKTOK_KAMU" target="_blank" aria-label="TikTok">🎵</a>
   </div>
 </footer>
 
 <!-- FULLSCREEN IMAGE -->
 <div id="overlay">
-  <img id="overlayImg">
+  <img id="overlayImg" alt="">
 </div>
 
+<!-- SCRIPT TAP -->
 <script>
 const cards = document.querySelectorAll('.card-img');
+const overlay = document.getElementById('overlay');
+const overlayImg = document.getElementById('overlayImg');
 let lastTap = 0;
 
 cards.forEach(card => {
-  card.onclick = () => {
-    const now = new Date().getTime();
+  card.addEventListener('click', () => {
+    const now = Date.now();
     if (now - lastTap < 300) {
       window.location.href = card.dataset.link;
     } else {
@@ -67,10 +74,12 @@ cards.forEach(card => {
       overlayImg.src = card.querySelector('img').src;
     }
     lastTap = now;
-  }
+  });
 });
 
-overlay.onclick = () => overlay.style.display = 'none';
+overlay.addEventListener('click', () => {
+  overlay.style.display = 'none';
+});
 </script>
 
 </body>
