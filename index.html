@@ -6,8 +6,23 @@
 <title>Hampers Lebaran</title>
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
+
 <body class="home">
 
+<!-- HEADER -->
+<header class="hero">
+  <img class="hero-img" src="assets/img/hampers-1.jpg" alt="Hampers">
+  <h1>Hampers Lebaran</h1>
+  <h2>Temukan dan pilih hampers untuk keluarga dan teman anda</h2>
+  <p>Pilihan ekonomis ga bikin anda krisis di moment Ramadhan tahun ini</p>
+
+  <div class="hero-actions">
+    <a href="produk/hampers-hemat.html" class="icon-btn">📦 Produk</a>
+    <a href="produk/custom.html" class="icon-btn">🧺 Custom</a>
+  </div>
+</header>
+
+<!-- GRID PRODUK -->
 <section class="grid">
   <div class="card-img" data-link="produk/hampers-hemat.html">
     <img src="assets/img/hampers-1.jpg">
@@ -23,6 +38,17 @@
   </div>
 </section>
 
+<!-- FOOTER -->
+<footer class="footer">
+  <p>Pilihlah pilihan yang tepat untuk kerabat anda</p>
+  <div class="footer-icons">
+    <a href="LINK_MAPS_KAMU" target="_blank">📍</a>
+    <a href="https://wa.me/62895339847320" target="_blank">💬</a>
+    <a href="LINK_TIKTOK_KAMU" target="_blank">🎵</a>
+  </div>
+</footer>
+
+<!-- FULLSCREEN IMAGE -->
 <div id="overlay">
   <img id="overlayImg">
 </div>
@@ -37,16 +63,14 @@ cards.forEach(card => {
     if (now - lastTap < 300) {
       window.location.href = card.dataset.link;
     } else {
-      document.getElementById('overlay').style.display = 'flex';
-      document.getElementById('overlayImg').src = card.querySelector('img').src;
+      overlay.style.display = 'flex';
+      overlayImg.src = card.querySelector('img').src;
     }
     lastTap = now;
   }
 });
 
-document.getElementById('overlay').onclick = () => {
-  document.getElementById('overlay').style.display = 'none';
-};
+overlay.onclick = () => overlay.style.display = 'none';
 </script>
 
 </body>
