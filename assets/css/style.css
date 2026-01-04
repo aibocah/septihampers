@@ -339,3 +339,17 @@ body {
   font-weight: bold;
   font-size: 18px;
 }
+
+/* =====================
+   INFO MESSAGE (ORDER)
+===================== */
+.info-message {
+  background: #fff6e5;
+  border-left: 6px solid #f0b429;
+  padding: 14px 16px;
+  border-radius: 16px;
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 18px;
+  color: #000;
+}
