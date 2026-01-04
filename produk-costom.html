@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <title>Produk Kostum</title>
+  <title>Produk Kostom</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
@@ -10,43 +10,41 @@
 
 <div class="container">
 
-  <div class="header">Produk Kostum</div>
+  <div class="header">Produk Kostom</div>
 
   <div class="custom-desc">
-    Sesuaikan pilihan isian hampers sesuai keinginan Anda.<br><br>
-    Kami akan menginformasikan harga terbaik melalui WhatsApp.
+    Sesuaikan isian hampers sesuai keinginan Anda.<br><br>
+    Silakan pilih isian atau tuliskan permintaan khusus,
+    lalu kami akan menginformasikan harganya.
   </div>
 
   <div class="custom-card">
 
-    <div class="custom-label">
-      Pilih atau isi sesuai keinginan Anda
-    </div>
+    <div class="custom-label">Pilih Isian</div>
 
     <div class="custom-list">
-      <label class="item"><span>Fanta</span><input type="checkbox" value="Fanta"></label>
-      <label class="item"><span>Sirup</span><input type="checkbox" value="Sirup"></label>
-
-      <label class="item"><span>Gula</span><input type="checkbox" value="Gula"></label>
-      <label class="item"><span>Snack</span><input type="checkbox" value="Snack"></label>
-
-      <label class="item"><span>Beras</span><input type="checkbox" value="Beras"></label>
-      <label class="item"><span>Monde</span><input type="checkbox" value="Monde"></label>
-
-      <label class="item"><span>Kurma</span><input type="checkbox" value="Kurma"></label>
-      <label class="item"><span>Tanggo</span><input type="checkbox" value="Tanggo"></label>
-
-      <label class="item"><span>Madu</span><input type="checkbox" value="Madu"></label>
-      <label class="item"><span>Minyak Goreng</span><input type="checkbox" value="Minyak Goreng"></label>
+      <div class="item"><span>Fanta</span><input type="checkbox" value="Fanta"></div>
+      <div class="item"><span>Sirup</span><input type="checkbox" value="Sirup"></div>
+      <div class="item"><span>Gula</span><input type="checkbox" value="Gula"></div>
+      <div class="item"><span>Snack</span><input type="checkbox" value="Snack"></div>
+      <div class="item"><span>Beras</span><input type="checkbox" value="Beras"></div>
+      <div class="item"><span>Monde</span><input type="checkbox" value="Monde"></div>
+      <div class="item"><span>Kurma</span><input type="checkbox" value="Kurma"></div>
+      <div class="item"><span>Tanggo</span><input type="checkbox" value="Tanggo"></div>
+      <div class="item"><span>Madu</span><input type="checkbox" value="Madu"></div>
+      <div class="item"><span>Minyak Goreng</span><input type="checkbox" value="Minyak Goreng"></div>
     </div>
 
-    <textarea id="catatan" placeholder="Tulis permintaan khusus (opsional)"></textarea>
+    <textarea
+      id="opsional"
+      placeholder="Permintaan khusus (opsional), contoh: warna hampers, kartu ucapan, dll"
+    ></textarea>
 
   </div>
 
   <div class="confirm-wrap">
-    <button type="button" class="confirm-btn" onclick="keOrder()">
-      Konfirmasi Harga
+    <button class="confirm-btn" onclick="keOrder()">
+      Tanya Harga
     </button>
   </div>
 
@@ -59,22 +57,27 @@ function keOrder(){
 
   checked.forEach(cb => isian.push(cb.value));
 
-  const catatan = document.getElementById("catatan").value.trim();
+  const opsional = document.getElementById("opsional").value.trim();
 
-  if(isian.length === 0 && !catatan){
+  if(isian.length === 0 && !opsional){
     alert("Silakan pilih isian atau tuliskan permintaan Anda terlebih dahulu.");
     return;
   }
 
-  let detail = isian.join(", ");
-  if(catatan){
-    detail += " | Catatan: " + catatan;
+  let detail = "";
+
+  if(isian.length > 0){
+    detail += "Isian: " + isian.join(", ");
+  }
+
+  if(opsional){
+    detail += (detail ? " | " : "") + "Permintaan Khusus: " + opsional;
   }
 
   const url =
     "assets/produk/order.html"
-    + "?produk=" + encodeURIComponent("Produk Kostum")
-    + "&harga=" + encodeURIComponent("Menyesuaikan")
+    + "?produk=" + encodeURIComponent("Produk Kostom")
+    + "&harga=" + encodeURIComponent("Berapa harga untuk ini?")
     + "&detail=" + encodeURIComponent(detail);
 
   window.location.href = url;
