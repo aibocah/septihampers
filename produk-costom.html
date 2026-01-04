@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Produk Kostum</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<div class="container">
+
+  <!-- HEADER -->
+  <div class="header">
+    Produk Kostum
+  </div>
+
+  <!-- DESKRIPSI -->
+  <p class="desc">
+    sesuaikan pilihan isian hampers anda dengan apa yang kamu mau.<br><br>
+    Anda bisa tanya soal harga Hampers dengan isian costom kepada kami
+  </p>
+
+  <!-- FORM -->
+  <div class="detail-card">
+
+    <div class="custom-title">
+      pilih atau isi sesuai keinginan anda
+    </div>
+
+    <form id="customForm">
+
+      <div class="custom-grid">
+        <label><span>fanta</span><input type="checkbox" value="Fanta"></label>
+        <label><span>sirup</span><input type="checkbox" value="Sirup"></label>
+
+        <label><span>gula</span><input type="checkbox" value="Gula"></label>
+        <label><span>snack</span><input type="checkbox" value="Snack"></label>
+
+        <label><span>bera</span><input type="checkbox" value="Beras"></label>
+        <label><span>monde</span><input type="checkbox" value="Monde"></label>
+
+        <label><span>kurma</span><input type="checkbox" value="Kurma"></label>
+        <label><span>tanggo</span><input type="checkbox" value="Tanggo"></label>
+
+        <label><span>madu</span><input type="checkbox" value="Madu"></label>
+        <label><span>minyak goreng</span><input type="checkbox" value="Minyak Goreng"></label>
+      </div>
+
+      <textarea placeholder="isi keinginan anda" id="note"></textarea>
+
+      <button type="button" class="confirm-btn" onclick="sendWA()">
+        Konfirmasi Harga
+      </button>
+
+    </form>
+  </div>
+
+</div>
+
+<script>
+function sendWA() {
+  const checked = document.querySelectorAll('input[type="checkbox"]:checked');
+  let items = [];
+  checked.forEach(i => items.push(i.value));
+
+  const note = document.getElementById("note").value;
+
+  let message = "Halo, saya ingin tanya harga hampers custom.%0A%0A";
+  message += "Isi pilihan:%0A";
+  items.forEach(i => message += "- " + i + "%0A");
+
+  if(note) {
+    message += "%0ACatatan tambahan:%0A" + note;
+  }
+
+  const phone = "628XXXXXXXXX"; // GANTI NOMOR WA
+  window.open(`https://wa.me/${phone}?text=${message}`, "_blank");
+}
+</script>
+
+</body>
+</html>
