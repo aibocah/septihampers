@@ -22,6 +22,21 @@ body {
   margin: auto;
 }
 
+.detail-desc h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.detail-desc ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.detail-desc li {
+  font-size: 15px;
+  line-height: 1.8;
+}
+
 /* =====================
    HEADER
 ===================== */
