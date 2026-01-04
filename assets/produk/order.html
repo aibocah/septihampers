@@ -21,7 +21,20 @@ body{
 }
 h2{
   text-align:center;
-  margin-bottom:20px;
+  margin-bottom:16px;
+}
+.notice{
+  background:#fff3cd;
+  padding:14px;
+  border-radius:14px;
+  font-size:14px;
+  margin-bottom:16px;
+}
+.product-box{
+  background:#eaf7ef;
+  padding:14px;
+  border-radius:16px;
+  margin-bottom:16px;
 }
 label{
   font-weight:bold;
@@ -34,10 +47,6 @@ input, textarea{
   margin-top:6px;
   border-radius:14px;
   border:1px solid #ccc;
-  font-size:14px;
-}
-textarea{
-  resize:none;
 }
 button{
   width:100%;
@@ -48,18 +57,6 @@ button{
   border:none;
   border-radius:20px;
   background:#6fd68c;
-  cursor:pointer;
-}
-  <div id="infoMessage" class="info-message">
-  ℹ️ <b>Informasi</b><br>
-  Silakan lengkapi data diri terlebih dahulu agar pesanan dapat kami proses dengan baik.
-</div>
-
-.product-box{
-  background:#eaf7ef;
-  padding:14px;
-  border-radius:16px;
-  margin-bottom:16px;
 }
 </style>
 </head>
@@ -70,42 +67,49 @@ button{
 
   <h2>Form Pemesanan</h2>
 
+  <div class="notice">
+    Mohon lengkapi data diri terlebih dahulu agar pesanan dapat diproses dengan baik.
+  </div>
+
   <div class="product-box">
-    <div><b>Produk:</b> <span id="produk"></span></div>
-    <div><b>Harga:</b> Rp <span id="harga"></span></div>
+    <b>Produk:</b> <span id="produk"></span><br>
+    <b>Harga:</b> Rp <span id="harga"></span>
   </div>
 
   <label>Nama Lengkap</label>
-  <input type="text" id="nama" placeholder="Nama pembeli">
+  <input id="nama" placeholder="Nama pembeli">
 
   <label>Nomor WhatsApp</label>
-  <input type="tel" id="wa" placeholder="08xxxxxxxxxx">
+  <input id="wa" placeholder="08xxxxxxxxxx">
 
   <label>Alamat Lengkap</label>
-  <textarea id="alamat" rows="3" placeholder="Alamat pengiriman"></textarea>
+  <textarea id="alamat" rows="3"></textarea>
 
   <label>Catatan (opsional)</label>
-  <textarea id="catatan" rows="2" placeholder="Catatan tambahan"></textarea>
+  <textarea id="catatan" rows="2"></textarea>
 
   <button onclick="kirimWA()">Pesan via WhatsApp</button>
 
 </div>
 
 <script>
-const params = new URLSearchParams(window.location.search);
-const produk = params.get("produk") || "-";
-const harga = params.get("harga") || "-";
+const p = new URLSearchParams(location.search);
+const produk = p.get("produk") || "-";
+const harga = p.get("harga") || "-";
 
 document.getElementById("produk").innerText = produk;
 document.getElementById("harga").innerText = harga;
 
 function kirimWA(){
-  const nama = document.getElementById("nama").value;
-  const wa = document.getElementById("wa").value;
-  const alamat = document.getElementById("alamat").value;
-  const catatan = document.getElementById("catatan").value;
+  const nama = nama.value.trim();
+  const wa = document.getElementById("wa").value.trim();
+  const alamat = alamat.value.trim();
+  const catatan = catatan.value.trim();
 
-  const noAdmin = "62895339847320";
+  if(!nama || !wa || !alamat){
+    alert("Mohon lengkapi data diri terlebih dahulu sebelum melanjutkan pemesanan.");
+    return;
+  }
 
   const pesan =
 `Halo, saya ingin memesan:
@@ -116,12 +120,12 @@ Harga: Rp ${harga}
 Nama: ${nama}
 No WA: ${wa}
 Alamat: ${alamat}
-Catatan: ${catatan}
+Catatan: ${catatan}`;
 
-Terima kasih`;
-
-  const url = `https://wa.me/${noAdmin}?text=${encodeURIComponent(pesan)}`;
-  window.open(url, "_blank");
+  window.open(
+    `https://wa.me/62895339847320?text=${encodeURIComponent(pesan)}`,
+    "_blank"
+  );
 }
 </script>
 
