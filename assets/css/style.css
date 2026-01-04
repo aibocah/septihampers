@@ -5,7 +5,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: "Arial", Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 body {
@@ -27,7 +27,6 @@ body {
 ===================== */
 .header {
   background: #6fd68c;
-  color: #000;
   text-align: center;
   font-size: 32px;
   font-weight: bold;
@@ -93,15 +92,6 @@ body {
 }
 
 /* =====================
-   CTA
-===================== */
-.cta {
-  text-align: center;
-  font-weight: bold;
-  margin-bottom: 20px;
-}
-
-/* =====================
    SOCIAL
 ===================== */
 .social {
@@ -118,64 +108,7 @@ body {
 }
 
 /* =====================
-   PRODUCT LIST CARD
-===================== */
-.car
-
-/* =====================
-   CUSTOM PRODUCT
-===================== */
-.custom-title {
-  background: #6fd68c;
-  padding: 12px;
-  border-radius: 14px;
-  margin-bottom: 16px;
-  font-weight: bold;
-}
-
-.custom-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 14px;
-  margin-bottom: 20px;
-}
-
-.custom-grid label {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 18px;
-}
-
-.custom-grid input {
-  width: 20px;
-  height: 20px;
-}
-
-textarea {
-  width: 100%;
-  height: 80px;
-  border-radius: 18px;
-  border: none;
-  padding: 14px;
-  font-size: 16px;
-  margin-bottom: 20px;
-  resize: none;
-}
-
-.confirm-btn {
-  width: 100%;
-  background: #6fd68c;
-  border: none;
-  padding: 16px;
-  font-size: 24px;
-  border-radius: 22px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-/* =====================
-   PRODUK KOSTUM (REFINE)
+   PRODUK KOSTUM (FINAL)
 ===================== */
 
 .custom-desc {
@@ -186,7 +119,7 @@ textarea {
 }
 
 .custom-card {
-  background: rgba(255,255,255,0.85);
+  background: rgba(255,255,255,0.9);
   border-radius: 36px;
   padding: 22px;
   box-shadow: 0 12px 20px rgba(0,0,0,.15);
@@ -204,7 +137,7 @@ textarea {
 .custom-list {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 14px 28px;
+  gap: 14px 26px;
   margin-bottom: 22px;
 }
 
@@ -220,20 +153,22 @@ textarea {
   height: 22px;
 }
 
-textarea {
+/* textarea FINAL */
+.custom-card textarea {
   width: 100%;
   height: 90px;
   border-radius: 24px;
   border: none;
   padding: 18px;
   font-size: 18px;
-  background: #fff;
+  resize: none;
 }
 
-textarea::placeholder {
+.custom-card textarea::placeholder {
   color: #bbb;
 }
 
+/* BUTTON FINAL */
 .confirm-wrap {
   margin-top: 26px;
 }
@@ -247,4 +182,5 @@ textarea::placeholder {
   border-radius: 26px;
   font-weight: bold;
   box-shadow: 0 10px 18px rgba(0,0,0,.2);
+  cursor: pointer;
 }
