@@ -21,6 +21,46 @@ body {
   max-width: 420px;
   margin: auto;
 }
+.product-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.product-card {
+  background: #fff;
+  border-radius: 22px;
+  padding: 14px;
+  box-shadow: 0 6px 14px rgba(0,0,0,.12);
+  text-align: center;
+}
+
+.product-card img {
+  width: 100%;
+  border-radius: 16px;
+  margin-bottom: 10px;
+}
+
+.product-name {
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 6px;
+}
+
+.product-price {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.product-btn {
+  display: block;
+  background: #6fd68c;
+  padding: 10px;
+  border-radius: 14px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #000;
+}
 
 /* =====================
    HEADER
