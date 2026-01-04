@@ -339,3 +339,30 @@ body {
   color:#000;
   display:none;
 }
+
+/* =====================
+   MENU TOMBOL INDEX
+===================== */
+.menu-text{
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+  margin:28px 0;
+}
+
+.menu-btn{
+  display:block;
+  text-align:center;
+  background:#6fd68c;
+  padding:20px;
+  border-radius:26px;
+  font-size:22px;
+  font-weight:bold;
+  color:#000;
+  text-decoration:none;
+  box-shadow:0 10px 18px rgba(0,0,0,.18);
+}
+
+.menu-btn:active{
+  transform:scale(.97);
+}
