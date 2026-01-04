@@ -5,82 +5,136 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Hampers Lebaran</title>
 <link rel="stylesheet" href="assets/css/style.css">
+<style>
+/* ===== HOME COMBO B + C ===== */
+.home-combo{
+min-height:100vh;
+display:flex;
+flex-direction:column;
+background:#f9f7f2;
+}
+
+/* HERO TIPIS (B) */
+.hero-combo{
+text-align:center;
+padding:16px 12px 10px;
+}
+.hero-combo img{
+width:64px;
+height:64px;
+border-radius:16px;
+object-fit:cover;
+margin-bottom:6px;
+}
+.hero-combo h1{
+font-size:20px;
+margin:4px 0;
+}
+.hero-combo h2{
+font-size:13px;
+font-weight:normal;
+margin:2px 0;
+}
+.hero-combo p{
+font-size:12px;
+color:#555;
+margin:4px 0;
+}
+
+/* GRID VISUAL (C) */
+.grid-combo{
+flex:1;
+display:grid;
+grid-template-columns:1fr 1fr;
+grid-template-rows:1fr 1fr;
+gap:8px;
+padding:8px;
+}
+.grid-combo a{
+display:block;
+border-radius:18px;
+overflow:hidden;
+}
+.grid-combo img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+/* FLOAT ACTION (C) */
+.fab{
+position:fixed;
+bottom:14px;
+left:50%;
+transform:translateX(-50%);
+display:flex;
+gap:10px;
+z-index:20;
+}
+.fab a{
+background:#1b7f5c;
+color:#fff;
+padding:10px 16px;
+border-radius:22px;
+font-size:12px;
+text-decoration:none;
+box-shadow:0 4px 10px rgba(0,0,0,.2);
+}
+
+/* FOOTER TIPIS */
+.footer-combo{
+text-align:center;
+font-size:11px;
+padding:6px;
+opacity:.7;
+}
+.footer-combo a{
+margin:0 6px;
+text-decoration:none;
+}
+</style>
 </head>
 
-<body class="home">
+<body class="home-combo">
 
-<!-- HEADER / HERO -->
-<header class="hero">
-  <img class="hero-img" src="assets/img/hampers-1.jpg" alt="Hampers Lebaran">
+<!-- HERO -->
+<header class="hero-combo">
+  <img src="assets/img/hampers-1.jpg" alt="Hampers">
   <h1>Hampers Lebaran</h1>
   <h2>Temukan dan pilih hampers untuk keluarga dan teman anda</h2>
-  <p>Pilihan ekonomis ga bikin anda krisis di moment Ramadhan tahun ini</p>
-
-  <div class="hero-actions">
-    <a href="produk/hampers-hemat.html" class="icon-btn">📦 Daftar Produk</a>
-    <a href="produk/custom.html" class="icon-btn">🧺 Produk Custom</a>
-  </div>
+  <p>Pilihan ekonomis tanpa bikin krisis di moment Ramadhan tahun ini</p>
 </header>
 
-<!-- GRID PRODUK (1 layar) -->
-<section class="grid">
-  <div class="card-img" data-link="produk/hampers-hemat.html">
+<!-- GRID PRODUK -->
+<section class="grid-combo">
+  <a href="produk/hampers-hemat.html">
     <img src="assets/img/hampers-1.jpg" alt="Hampers Hemat">
-  </div>
-
-  <div class="card-img" data-link="produk/hampers-lengkap.html">
+  </a>
+  <a href="produk/hampers-lengkap.html">
     <img src="assets/img/hampers-2.jpg" alt="Hampers Lengkap">
-  </div>
-
-  <div class="card-img" data-link="produk/hampers-spesial.html">
+  </a>
+  <a href="produk/hampers-spesial.html">
     <img src="assets/img/hampers-3.jpg" alt="Hampers Spesial">
-  </div>
-
-  <div class="card-img" data-link="produk/custom.html">
+  </a>
+  <a href="produk/custom.html">
     <img src="assets/img/hampers-4.jpg" alt="Custom Hampers">
-  </div>
+  </a>
 </section>
 
-<!-- FOOTER -->
-<footer class="footer">
-  <p>Pilihlah pilihan yang tepat untuk kerabat anda</p>
-  <div class="footer-icons">
-    <!-- GANTI LINK DI BAWAH SESUAI PUNYAMU -->
-    <a href="LINK_MAPS_KAMU" target="_blank" aria-label="Maps">📍</a>
-    <a href="https://wa.me/62895339847320" target="_blank" aria-label="WhatsApp">💬</a>
-    <a href="LINK_TIKTOK_KAMU" target="_blank" aria-label="TikTok">🎵</a>
-  </div>
-</footer>
-
-<!-- FULLSCREEN IMAGE -->
-<div id="overlay">
-  <img id="overlayImg" alt="">
+<!-- FLOAT ACTION -->
+<div class="fab">
+  <a href="produk/hampers-hemat.html">Produk</a>
+  <a href="produk/custom.html">Custom</a>
+  <a href="https://wa.me/62895339847320">WA</a>
 </div>
 
-<!-- SCRIPT TAP -->
-<script>
-const cards = document.querySelectorAll('.card-img');
-const overlay = document.getElementById('overlay');
-const overlayImg = document.getElementById('overlayImg');
-let lastTap = 0;
-
-cards.forEach(card => {
-  card.addEventListener('click', () => {
-    const now = Date.now();
-    if (now - lastTap < 300) {
-      window.location.href = card.dataset.link;
-    } else {
-      overlay.style.display = 'flex';
-      overlayImg.src = card.querySelector('img').src;
-    }
-    lastTap = now;
-  });
-});
-
-overlay.addEventListener('click', () => {
-  overlay.style.display = 'none';
-});
-</script>
+<!-- FOOTER -->
+<footer class="footer-combo">
+  Pilihlah pilihan yang tepat untuk kerabat anda <br>
+  <a href="LINK_MAPS" target="_blank">Maps</a> •
+  <a href="https://wa.me/62895339847320">WhatsApp</a> •
+  <a href="LINK_TIKTOK" target="_blank">TikTok</a>
+</footer>
 
 </body>
 </html>
