@@ -3,71 +3,51 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Hampers Lebaran Murah</title>
+<title>Hampers Lebaran</title>
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body>
-<header>
-<h1>Hampers Lebaran Murah & Berkah</h1>
-<p>Hadiah terbaik untuk keluarga tanpa ribet</p>
-<a class="cta" href="produk.html">🎁 Pilih Hampers</a>
-<a class="cta" href="custom-hampers.html">🧺 Custom Hampers</a>
-<a class="cta" href="order.html">📲 Pesan Sekarang</a>
-</header>
-<section class="gallery">
+<body class="home">
 
-  <div class="img-card" data-link="produk.html#hampers-1">
-    <img src="assets/img/hampers-1.jpg" alt="Hampers 1">
+<section class="grid">
+  <div class="card-img" data-link="produk/hampers-hemat.html">
+    <img src="assets/img/hampers-1.jpg">
   </div>
-
-  <div class="img-card" data-link="produk.html#hampers-2">
-    <img src="assets/img/hampers-2.jpg" alt="Hampers 2">
+  <div class="card-img" data-link="produk/hampers-lengkap.html">
+    <img src="assets/img/hampers-2.jpg">
   </div>
-
-  <div class="img-card" data-link="produk.html#hampers-3">
-    <img src="assets/img/hampers-3.jpg" alt="Hampers 3">
+  <div class="card-img" data-link="produk/hampers-spesial.html">
+    <img src="assets/img/hampers-3.jpg">
   </div>
-
-  <div class="img-card" data-link="produk.html#hampers-4">
-    <img src="assets/img/hampers-4.jpg" alt="Hampers 4">
+  <div class="card-img" data-link="produk/custom.html">
+    <img src="assets/img/hampers-4.jpg">
   </div>
-
 </section>
-  
-<section>
-<div class="card">
-<h2>Kenapa Pilih Kami?</h2>
-<ul>
-<li>Harga terjangkau</li>
-<li>Bisa custom</li>
-<li>Langsung WhatsApp</li>
-</ul>
+
+<div id="overlay">
+  <img id="overlayImg">
 </div>
-</section>
 
-<a class="floating-wa" href="https://wa.me/62895339847320">💬 WhatsApp</a>
 <script>
-  const cards = document.querySelectorAll('.img-card');
+const cards = document.querySelectorAll('.card-img');
+let lastTap = 0;
 
-  cards.forEach(card => {
-    let zoomed = false;
+cards.forEach(card => {
+  card.onclick = () => {
+    const now = new Date().getTime();
+    if (now - lastTap < 300) {
+      window.location.href = card.dataset.link;
+    } else {
+      document.getElementById('overlay').style.display = 'flex';
+      document.getElementById('overlayImg').src = card.querySelector('img').src;
+    }
+    lastTap = now;
+  }
+});
 
-    card.addEventListener('click', () => {
-      if (!zoomed) {
-        // klik pertama → zoom
-        card.classList.add('zoom');
-        zoomed = true;
-      } else {
-        // klik kedua → ke produk
-        window.location.href = card.dataset.link;
-      }
-    });
-  });
+document.getElementById('overlay').onclick = () => {
+  document.getElementById('overlay').style.display = 'none';
+};
 </script>
-  <div id="imgOverlay" class="overlay">
-  <img id="overlayImg" src="">
-  <p class="hint">Ketuk sekali lagi untuk lihat produk</p>
-  </div>
-  
+
 </body>
 </html>
