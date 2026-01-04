@@ -173,3 +173,78 @@ textarea {
   font-weight: bold;
   cursor: pointer;
 }
+
+/* =====================
+   PRODUK KOSTUM (REFINE)
+===================== */
+
+.custom-desc {
+  text-align: center;
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.custom-card {
+  background: rgba(255,255,255,0.85);
+  border-radius: 36px;
+  padding: 22px;
+  box-shadow: 0 12px 20px rgba(0,0,0,.15);
+}
+
+.custom-label {
+  background: #6fd68c;
+  border-radius: 18px;
+  padding: 12px 16px;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 18px;
+}
+
+.custom-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px 28px;
+  margin-bottom: 22px;
+}
+
+.custom-list .item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 20px;
+}
+
+.custom-list input {
+  width: 22px;
+  height: 22px;
+}
+
+textarea {
+  width: 100%;
+  height: 90px;
+  border-radius: 24px;
+  border: none;
+  padding: 18px;
+  font-size: 18px;
+  background: #fff;
+}
+
+textarea::placeholder {
+  color: #bbb;
+}
+
+.confirm-wrap {
+  margin-top: 26px;
+}
+
+.confirm-btn {
+  width: 100%;
+  background: #6fd68c;
+  border: none;
+  padding: 18px;
+  font-size: 28px;
+  border-radius: 26px;
+  font-weight: bold;
+  box-shadow: 0 10px 18px rgba(0,0,0,.2);
+}
