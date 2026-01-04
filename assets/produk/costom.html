@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Custom Produk</title>
+
+<style>
+body{
+  font-family:Arial, sans-serif;
+  background:#f4f0e6;
+  padding:20px;
+}
+.container{
+  max-width:420px;
+  margin:auto;
+}
+.header{
+  background:#6fd68c;
+  padding:18px;
+  text-align:center;
+  font-size:26px;
+  font-weight:bold;
+  border-radius:26px;
+  margin-bottom:20px;
+}
+.card{
+  background:#fff;
+  border-radius:30px;
+  padding:22px;
+  box-shadow:0 10px 20px rgba(0,0,0,.15);
+}
+.section-title{
+  background:#6fd68c;
+  padding:12px 16px;
+  border-radius:18px;
+  font-weight:bold;
+  margin-bottom:16px;
+}
+.list{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px 26px;
+}
+.item{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-size:18px;
+}
+input[type=checkbox]{
+  width:20px;
+  height:20px;
+}
+.total{
+  margin:22px 0;
+  background:#eaf7ef;
+  padding:16px;
+  border-radius:18px;
+  font-size:22px;
+  font-weight:bold;
+  text-align:center;
+}
+label{
+  font-weight:bold;
+  margin-top:14px;
+  display:block;
+}
+input, textarea{
+  width:100%;
+  padding:12px;
+  border-radius:14px;
+  border:1px solid #ccc;
+  margin-top:6px;
+}
+textarea{ resize:none; }
+button{
+  width:100%;
+  margin-top:22px;
+  padding:18px;
+  font-size:22px;
+  font-weight:bold;
+  border:none;
+  border-radius:26px;
+  background:#6fd68c;
+  cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="header">Custom Produk Hampers</div>
+
+  <div class="card">
+
+    <div class="section-title">Pilih Isian</div>
+
+    <div class="list">
+      <label class="item">Fanta <input type="checkbox" value="5000"></label>
+      <label class="item">Gula <input type="checkbox" value="7000"></label>
+      <label class="item">Sirup ABC <input type="checkbox" value="12000"></label>
+      <label class="item">Nektar <input type="checkbox" value="15000"></label>
+      <label class="item">Kopi <input type="checkbox" value="8000"></label>
+      <label class="item">Snack <input type="checkbox" value="10000"></label>
+    </div>
+
+    <div class="total">
+      Total: Rp <span id="total">0</span>
+    </div>
+
+    <label>Nama Lengkap</label>
+    <input id="nama" placeholder="Nama pembeli">
+
+    <label>Nomor WhatsApp</label>
+    <input id="wa" placeholder="08xxxxxxxxxx">
+
+    <label>Alamat Lengkap</label>
+    <textarea id="alamat" rows="3"></textarea>
+
+    <label>Catatan</label>
+    <textarea id="catatan" rows="2"></textarea>
+
+    <button onclick="checkout()">Pesan via WhatsApp</button>
+
+  </div>
+
+</div>
+
+<script>
+const checkboxes = document.querySelectorAll("input[type=checkbox]");
+const totalEl = document.getElementById("total");
+
+function hitung(){
+  let total = 0;
+  checkboxes.forEach(cb => {
+    if(cb.checked) total += parseInt(cb.value);
+  });
+  totalEl.innerText = total.toLocaleString("id-ID");
+}
+checkboxes.forEach(cb => cb.addEventListener("change", hitung));
+
+function checkout(){
+  let items = [];
+  let total = 0;
+
+  checkboxes.forEach(cb => {
+    if(cb.checked){
+      items.push(cb.parentElement.innerText.trim());
+      total += parseInt(cb.value);
+    }
+  });
+
+  const nama = document.getElementById("nama").value;
+  const wa = document.getElementById("wa").value;
+  const alamat = document.getElementById("alamat").value;
+  const catatan = document.getElementById("catatan").value;
+
+  const admin = "6281234567890"; // GANTI NOMOR TOKO
+
+  const pesan =
+`Halo, saya ingin pesan custom hampers:
+
+Isi:
+- ${items.join("\n- ")}
+
+Total: Rp ${total.toLocaleString("id-ID")}
+
+Nama: ${nama}
+No WA: ${wa}
+Alamat: ${alamat}
+Catatan: ${catatan}`;
+
+  window.open(
+    `https://wa.me/${admin}?text=${encodeURIComponent(pesan)}`,
+    "_blank"
+  );
+}
+</script>
+
+</body>
+</html>
