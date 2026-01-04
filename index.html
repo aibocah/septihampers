@@ -5,8 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Hampers Lebaran</title>
 <link rel="stylesheet" href="assets/css/style.css">
+
 <style>
-/* ===== HOME COMBO B + C ===== */
+/* ===== HOME COMBO B + C (REFINED) ===== */
 .home-combo{
 min-height:100vh;
 display:flex;
@@ -14,46 +15,35 @@ flex-direction:column;
 background:#f9f7f2;
 }
 
-/* HERO TIPIS (B) */
+/* HERO */
 .hero-combo{
 text-align:center;
-padding:16px 12px 10px;
+padding:14px 12px 8px;
 }
 .hero-combo img{
-width:64px;
-height:64px;
+width:60px;
+height:60px;
 border-radius:16px;
 object-fit:cover;
 margin-bottom:6px;
 }
-.hero-combo h1{
-font-size:20px;
-margin:4px 0;
-}
-.hero-combo h2{
-font-size:13px;
-font-weight:normal;
-margin:2px 0;
-}
-.hero-combo p{
-font-size:12px;
-color:#555;
-margin:4px 0;
-}
+.hero-combo h1{font-size:19px;margin:4px 0}
+.hero-combo h2{font-size:12px;font-weight:normal;margin:2px 0}
+.hero-combo p{font-size:11px;color:#555;margin:4px 0}
 
-/* GRID VISUAL (C) */
+/* GRID DIPERKECIL */
 .grid-combo{
 flex:1;
 display:grid;
 grid-template-columns:1fr 1fr;
 grid-template-rows:1fr 1fr;
-gap:8px;
-padding:8px;
+gap:10px;
+padding:14px;
 }
-.grid-combo a{
-display:block;
-border-radius:18px;
+.grid-combo .item{
+border-radius:20px;
 overflow:hidden;
+background:#eee;
 }
 .grid-combo img{
 width:100%;
@@ -61,7 +51,22 @@ height:100%;
 object-fit:cover;
 }
 
-/* FLOAT ACTION (C) */
+/* OVERLAY ZOOM */
+#zoomOverlay{
+position:fixed;
+inset:0;
+background:#000;
+display:none;
+align-items:center;
+justify-content:center;
+z-index:99;
+}
+#zoomOverlay img{
+max-width:100%;
+max-height:100%;
+}
+
+/* FLOAT ACTION */
 .fab{
 position:fixed;
 bottom:14px;
@@ -81,17 +86,14 @@ text-decoration:none;
 box-shadow:0 4px 10px rgba(0,0,0,.2);
 }
 
-/* FOOTER TIPIS */
+/* FOOTER */
 .footer-combo{
 text-align:center;
 font-size:11px;
 padding:6px;
 opacity:.7;
 }
-.footer-combo a{
-margin:0 6px;
-text-decoration:none;
-}
+.footer-combo a{margin:0 6px;text-decoration:none}
 </style>
 </head>
 
@@ -105,20 +107,20 @@ text-decoration:none;
   <p>Pilihan ekonomis tanpa bikin krisis di moment Ramadhan tahun ini</p>
 </header>
 
-<!-- GRID PRODUK -->
+<!-- GRID -->
 <section class="grid-combo">
-  <a href="produk/hampers-hemat.html">
-    <img src="assets/img/hampers-1.jpg" alt="Hampers Hemat">
-  </a>
-  <a href="produk/hampers-lengkap.html">
-    <img src="assets/img/hampers-2.jpg" alt="Hampers Lengkap">
-  </a>
-  <a href="produk/hampers-spesial.html">
-    <img src="assets/img/hampers-3.jpg" alt="Hampers Spesial">
-  </a>
-  <a href="produk/custom.html">
-    <img src="assets/img/hampers-4.jpg" alt="Custom Hampers">
-  </a>
+  <div class="item" data-link="produk/hampers-hemat.html">
+    <img src="assets/img/hampers-1.jpg">
+  </div>
+  <div class="item" data-link="produk/hampers-lengkap.html">
+    <img src="assets/img/hampers-2.jpg">
+  </div>
+  <div class="item" data-link="produk/hampers-spesial.html">
+    <img src="assets/img/hampers-3.jpg">
+  </div>
+  <div class="item" data-link="produk/custom.html">
+    <img src="assets/img/hampers-4.jpg">
+  </div>
 </section>
 
 <!-- FLOAT ACTION -->
@@ -131,10 +133,36 @@ text-decoration:none;
 <!-- FOOTER -->
 <footer class="footer-combo">
   Pilihlah pilihan yang tepat untuk kerabat anda <br>
-  <a href="LINK_MAPS" target="_blank">Maps</a> •
+  <a href="LINK_MAPS">Maps</a> •
   <a href="https://wa.me/62895339847320">WhatsApp</a> •
-  <a href="LINK_TIKTOK" target="_blank">TikTok</a>
+  <a href="LINK_TIKTOK">TikTok</a>
 </footer>
+
+<!-- ZOOM OVERLAY -->
+<div id="zoomOverlay">
+  <img id="zoomImg">
+</div>
+
+<script>
+const items = document.querySelectorAll('.grid-combo .item');
+const overlay = document.getElementById('zoomOverlay');
+const zoomImg = document.getElementById('zoomImg');
+let activeLink = '';
+
+items.forEach(item => {
+  item.addEventListener('click', () => {
+    activeLink = item.dataset.link;
+    zoomImg.src = item.querySelector('img').src;
+    overlay.style.display = 'flex';
+  });
+});
+
+overlay.addEventListener('click', () => {
+  if (activeLink) {
+    window.location.href = activeLink;
+  }
+});
+</script>
 
 </body>
 </html>
