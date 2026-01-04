@@ -57,27 +57,33 @@ body{
 }
 
 /* ===== GRID BODY ===== */
-.grid-lebaran{
-  flex:1;
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:16px;
-  padding:22px;
-}
+<section class="grid-lebaran">
 
-.grid-lebaran .item{
-  height:105px;
-  background:#fff;
-  border-radius:20px;
-  overflow:hidden;
-  box-shadow:0 8px 20px rgba(0,0,0,.06);
-}
+  <div class="item" data-link="produk/hampers-hemat.html">
+    <div class="thumb">
+      <img src="assets/img/hampers-1.jpg" alt="Hampers Hemat">
+    </div>
+  </div>
 
-.grid-lebaran img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
+  <div class="item" data-link="produk/hampers-lengkap.html">
+    <div class="thumb">
+      <img src="assets/img/hampers-2.jpg" alt="Hampers Lengkap">
+    </div>
+  </div>
+
+  <div class="item" data-link="produk/hampers-spesial.html">
+    <div class="thumb">
+      <img src="assets/img/hampers-3.jpg" alt="Hampers Spesial">
+    </div>
+  </div>
+
+  <div class="item" data-link="produk/custom.html">
+    <div class="thumb">
+      <img src="assets/img/hampers-4.jpg" alt="Custom Hampers">
+    </div>
+  </div>
+
+</section>
 
 /* ===== FLOAT ACTION ===== */
 .fab{
