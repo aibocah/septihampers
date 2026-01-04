@@ -1,73 +1,89 @@
+/* =====================
+   RESET & BASE
+===================== */
 * {
   box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  font-family: "Arial", Helvetica, sans-serif;
 }
 
 body {
-  background: #f4f0e6;
-  margin: 0;
+  background: linear-gradient(#f4f0e6, #efe6cf);
   padding: 20px;
+  color: #000;
 }
 
+/* =====================
+   CONTAINER
+===================== */
 .container {
   max-width: 420px;
   margin: auto;
-  background: #fffdf6;
-  border-radius: 30px;
-  padding: 20px;
 }
 
-/* HEADER */
+/* =====================
+   HEADER
+===================== */
 .header {
   background: #6fd68c;
-  color: white;
-  font-size: 34px;
+  color: #000;
   text-align: center;
+  font-size: 32px;
+  font-weight: bold;
   padding: 18px;
-  border-radius: 20px;
-  margin-bottom: 20px;
+  border-radius: 26px;
+  margin-bottom: 22px;
+  box-shadow: 0 6px 12px rgba(0,0,0,.15);
 }
 
-/* DESKRIPSI */
+/* =====================
+   HOME DESCRIPTION
+===================== */
 .desc {
   font-size: 14px;
-  text-align: center;
   line-height: 1.6;
+  text-align: center;
   margin-bottom: 20px;
 }
 
-/* GAMBAR */
+/* =====================
+   HOME GALLERY
+===================== */
 .gallery {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 10px;
+  gap: 12px;
 }
 
 .gallery img,
 .gallery-big img {
   width: 100%;
-  border-radius: 12px;
+  border-radius: 16px;
+  display: block;
 }
 
 .gallery-big {
   margin-top: 12px;
 }
 
-/* MENU */
+/* =====================
+   MENU HOME
+===================== */
 .menu {
   display: flex;
   justify-content: space-around;
-  margin: 25px 0;
+  margin: 26px 0;
 }
 
 .menu-item {
   text-decoration: none;
-  color: black;
+  color: #000;
   text-align: center;
 }
 
 .menu-item img {
-  width: 80px;
+  width: 78px;
 }
 
 .menu-item span {
@@ -76,22 +92,32 @@ body {
   font-weight: bold;
 }
 
-/* CTA */
+/* =====================
+   CTA
+===================== */
 .cta {
-  font-weight: bold;
   text-align: center;
+  font-weight: bold;
   margin-bottom: 20px;
 }
 
-/* SOSIAL */
+/* =====================
+   SOCIAL
+===================== */
 .social {
   display: flex;
   justify-content: space-around;
   background: #b8c9a1;
-  padding: 15px;
-  border-radius: 20px;
+  padding: 16px;
+  border-radius: 22px;
+  box-shadow: 0 6px 10px rgba(0,0,0,.15);
 }
 
 .social img {
-  width: 45px;
+  width: 44px;
 }
+
+/* =====================
+   PRODUCT LIST CARD
+===================== */
+.car
